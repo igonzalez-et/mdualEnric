@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+</head>
+<body>
+    <h1>Inicio de sesión</h1>
+    <form action="">
+        <input type="text" id="username" placeholder="Nombre de usuario">
+        <input type="password"  id="pwd" placeholder="Contraseña"><br>
+        <input type="submit" onclick="inicioSesion()" value="Iniciar Sesión">
+    </form>
+    <h1>Registro de usuario</h1>
+    <form action="">
+        <input type="text" id="usernameRegister" placeholder="Nombre de usuario">
+        <input type="password"  id="pwdRegister" placeholder="Contraseña"><br>
+        <input type="submit" onclick="registroUsuario()" value="Registrar Usuario">
+    </form>
+
+    <script>
+        var dictUsers = {};
+        dictUsers["xavi"] = "Superlocal1234";
+        dictUsers["iker"] = "Superlocal1233";
+        dictUsers["raul"] = "Superlocal123";
+
+        
+
+        function inicioSesion(){
+            let objNameUsers = Object.keys(dictUsers);
+            let objPwdUsers = Object.values(dictUsers);
+            let nameUser = document.getElementById("username").value;
+            let pwdUser = document.getElementById("pwd").value;
+            let booleanName = false;
+            for (let i = 0; i < objNameUsers.length; i++) {
+                if(nameUser == objNameUsers[i] && pwdUser == objPwdUsers[i]){
+                    booleanName = true;
+                }
+            }
+            if(booleanName){
+                alert("Has iniciado sesión");
+            }
+            else{
+                alert("Usuario o contraseña incorrecto");
+            }
+        }
+
+        function registroUsuario(){
+
+        }
+        
+    </script>
+</body>
+</html>
